@@ -1,0 +1,222 @@
+.user-settings {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.user-tooltip-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.user-tooltip {
+  position: absolute;
+  bottom: -36px;
+  right: 0;
+  transform: translateY(4px);
+  white-space: nowrap;
+  background: var(--tooltip-bg);
+  color: var(--tooltip-text);
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s ease-in-out;
+}
+
+.user-tooltip::after {
+  content: "";
+  position: absolute;
+  top: -4px;
+  right: 10px;
+  border-width: 4px;
+  border-style: solid;
+  border-color: transparent transparent var(--tooltip-bg) transparent;
+}
+
+.user-tooltip-wrapper:hover .user-tooltip {
+  opacity: 1;
+}
+
+.theme-tooltip-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.theme-tooltip {
+  position: absolute;
+  bottom: -36px;
+  right: 0;
+  transform: translateY(4px);
+  white-space: nowrap;
+  background: var(--tooltip-bg);
+  color: var(--tooltip-text);
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s ease-in-out;
+}
+
+.theme-tooltip::after {
+  content: "";
+  position: absolute;
+  top: -4px;
+  right: 10px;
+  border-width: 4px;
+  border-style: solid;
+  border-color: transparent transparent var(--tooltip-bg) transparent;
+}
+
+.theme-tooltip-wrapper:hover .theme-tooltip {
+  opacity: 1;
+}
+
+.user-menu {
+  position: absolute;
+  top: 42px;
+  right: 0;
+  min-width: 210px;
+  background: var(--menu-bg);
+  color: var(--text-color);
+  border-radius: 12px;
+  padding: 4px 0;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.35);
+  border: 1px solid var(--menu-border);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(6px);
+  transition: opacity 0.16s ease-out, transform 0.16s ease-out;
+}
+
+.user-menu-item {
+  width: 100%;
+  padding: 8px 14px;
+  background: transparent;
+  border: none;
+  text-align: left;
+  font-size: 0.85rem;
+  color: inherit;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.user-menu-item + .user-menu-item {
+  border-top: 1px solid var(--menu-border);
+}
+
+.user-menu-item:hover {
+  background: var(--menu-hover-bg);
+}
+
+.user-menu-item-danger {
+  color: var(--menu-danger);
+}
+
+.user-menu-item-danger:hover {
+  background: var(--menu-danger-hover-bg);
+  color: #7f1d1d; /* Strong contrast on light theme */
+}
+
+:root[data-theme="dark"] .user-menu-item-danger:hover {
+  color: #fef2f2; /* Preserve high contrast on dark theme */
+}
+
+.user-tooltip-wrapper.menu-open .user-menu {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.user-avatar {
+  border: none;
+  background: transparent;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  cursor: pointer;
+  box-shadow: none;
+  padding: 0;
+  color: var(--toolbar-text);
+  transition: background 0.15s ease-in-out;
+}
+
+.user-avatar .material-icons {
+  font-size: 1.6rem;
+}
+
+.user-avatar:hover {
+  background: var(--logo-hover-bg);
+}
+
+/* ---------- Theme Toggle ---------- */
+.theme-toggle {
+  border: none;
+  background: transparent;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  cursor: pointer;
+  padding: 0;
+  margin-right: 4px;
+  transition: background 0.15s ease-in-out;
+  color: var(--toolbar-text);
+}
+
+.theme-toggle:hover {
+  background: var(--logo-hover-bg);
+}
+
+.theme-icon {
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+.theme-icon-dark {
+  display: none;
+}
+
+:root[data-theme="dark"] .theme-icon-light {
+  display: none;
+}
+
+:root[data-theme="dark"] .theme-icon-dark {
+  display: inline;
+}
+
+@media (max-width: 480px) {
+  .user-avatar {
+    width: 28px;
+    height: 28px;
+    font-size: 0.8rem;
+  }
+
+  .theme-toggle {
+    width: 28px;
+    height: 28px;
+    margin-right: 0;
+  }
+
+  .theme-icon {
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 1024px) {
+  .user-avatar {
+    width: 30px;
+    height: 30px;
+  }
+}

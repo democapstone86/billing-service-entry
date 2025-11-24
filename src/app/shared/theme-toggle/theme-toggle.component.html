@@ -1,0 +1,46 @@
+<div class="user-settings">
+  <div class="theme-tooltip-wrapper">
+    <button
+      class="theme-toggle"
+      type="button"
+      (click)="toggle()"
+      aria-label="Toggle light and dark mode"
+    >
+      <span *ngIf="theme === 'light'" class="material-icons theme-icon">
+        dark_mode
+      </span>
+
+      <span *ngIf="theme === 'dark'" class="material-icons theme-icon">
+        light_mode
+      </span>
+    </button>
+    <div class="theme-tooltip">Toggle theme</div>
+  </div>
+  <div class="user-tooltip-wrapper" [class.menu-open]="menuOpen">
+    <button
+      class="user-avatar"
+      type="button"
+      (click)="toggleMenu($event)"
+      aria-haspopup="true"
+      aria-expanded="false"
+    >
+      <span class="material-icons">account_circle</span>
+    </button>
+    <div class="user-tooltip">User settings</div>
+    <div class="user-menu" role="menu" aria-label="User menu">
+      <button class="user-menu-item" type="button" role="menuitem">
+        Application Settings
+      </button>
+      <button class="user-menu-item" type="button" role="menuitem">
+        User Settings
+      </button>
+      <button
+        class="user-menu-item user-menu-item-danger"
+        type="button"
+        role="menuitem"
+      >
+        Log Out
+      </button>
+    </div>
+  </div>
+</div>
